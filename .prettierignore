@@ -1,0 +1,4 @@
+*.md
+**/vendor
+**/storage
+composer.lock
