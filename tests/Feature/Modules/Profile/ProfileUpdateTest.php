@@ -117,4 +117,3 @@ it('cannot update password with invalid current password', function () {
         ->assertSessionHasErrors('current_password')
         ->assertRedirect('/settings/password');
 });
-

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useToasts } from '@/composables/useToastNotifications'
-import { BellOff, BellRing } from 'lucide-vue-next'
 
 const { toasts, toastAgain, reToasted } = useToasts()
 </script>

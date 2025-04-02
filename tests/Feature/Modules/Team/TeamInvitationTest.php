@@ -26,4 +26,3 @@ it('cannot send invitation if user already exists', function () {
 
     $response->assertRedirect();
 });
-

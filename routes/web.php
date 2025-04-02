@@ -9,9 +9,9 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
-//Route::get('dashboard', function () {
+// Route::get('dashboard', function () {
 //    return Inertia::render('Dashboard2');
-//})->middleware(['auth', 'verified'])->name('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/authentication/routes.php';
 require __DIR__.'/profile/routes.php';
