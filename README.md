@@ -6,21 +6,23 @@
 > Application is under development and not ready for production use!
 
 ## 🚀 Modules
-1. [Authentication](./documentation/modules/Authentication.md) - In Progress
-2. HR & Employee Management - Planning
-3. Accounting & Finance - Planning
-4. CRM (Customer Relationship Management) - Planning
-5. Project & Task Management - Planning
-6. E-Commerce - Planning
-7. [Helpdesk & Customer Support](./documentation/modules/Helpdesk.md) - Planned
-8. Website Builder - Planning
-9. Marketing Automation - Planning
-10. Document Management - Planning
-11. Collaboration & Communication - Planning
-12. Inventory & Supply Chain Management - Planning
-13. Client Portal - Planning
-14. Compliance & Legal - Planning
-15. Data Analytics & Reporting - Planning
+1. [Authentication](./documentation/modules/Authentication.md) - Done
+2. [Profile](./documentation/modules/Profile.md) - Done
+3. [Team](./documentation/modules/Team.md) - Done
+4. [Helpdesk & Customer Support](./documentation/modules/Helpdesk.md) - In progress
+5. HR & Employee Management - Planning
+6. Accounting & Finance - Planning
+7. CRM (Customer Relationship Management) - Planning
+8. Project & Task Management - Planning
+9. E-Commerce - Planning
+10. Website Builder - Planning
+11. Marketing Automation - Planning
+12. Document Management - Planning
+13. Collaboration & Communication - Planning
+14. Inventory & Supply Chain Management - Planning
+15. Client Portal - Planning
+16. Compliance & Legal - Planning
+17. Data Analytics & Reporting - Planning
 
 ## Contributors ✨
 

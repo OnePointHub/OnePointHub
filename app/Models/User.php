@@ -2,17 +2,19 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
 
+    use HasRoles;
     use Notifiable;
 
     /**
@@ -24,6 +26,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'location',
+        'status',
+        'last_active_at',
     ];
 
     /**
@@ -34,6 +40,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'last_active_at',
+        'roles',
     ];
 
     /**
@@ -46,6 +54,34 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'last_active_at' => 'datetime',
         ];
+    }
+
+    protected $with = [
+        'roles',
+    ];
+
+    protected $appends = [
+        'last_active',
+        'role',
+    ];
+
+    public function getLastActiveAttribute(): string
+    {
+        if ($this->last_active_at === null) {
+            return 'Never';
+        } else {
+            if ($this->last_active_at->gt(Carbon::now()->subMinutes(10))) {
+                return 'Just now';
+            } else {
+                return $this->last_active_at->diffForHumans();
+            }
+        }
+    }
+
+    public function getRoleAttribute(): string
+    {
+        return $this->roles()->pluck('name')->first();
     }
 }

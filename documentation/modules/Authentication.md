@@ -2,15 +2,14 @@
 
 ## Authentication
 
-1. User Login: - IN PROGRESS
+1. User Login: - Done
     * Login using provided email and password.
-2. Reset Password: - IN PROGRESS
+2. Reset Password: - Done
     * Request reset password.
     * Send reset password email.
     * Reset Password.
-3. Invite Only Registration: - IN PROGRESS
-    * Send invitation to user.
-    * Register to application through received invitation.
+3. Logout: - Done
+    * User can log out .
 
 # Authentication Database Scheme:
 
@@ -28,6 +27,10 @@
 | remember_token    | varchar(100)    | YES  |     | NULL    |                |
 | created_at        | timestamp       | YES  |     | NULL    |                |
 | updated_at        | timestamp       | YES  |     | NULL    |                |
+| status            | varchar(255)    | NO   |     | active  |                |
+| phone             | varchar(255)    | YES  |     |         |                |
+| location          | varchar(255)    | YES  |     |         |                |
+| last_active_at    | timestamp       | YES  |     |         |                |
 
 ### Table Name: password_reset_tokens
 
@@ -48,15 +51,63 @@
 | payload       | longtext        | NO   |     | NULL    |       |
 | last_activity | int             | NO   | MUL | NULL    |       |
 
+### Table Name: permissions
+
+| Field      | Type            | Null | Key | Default | Extra          |
+|------------|-----------------|------|-----|---------|----------------|
+| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255)    | NO   | MUL | NULL    |                |
+| guard_name | varchar(255)    | NO   |     | NULL    |                |
+| created_at | timestamp       | YES  |     | NULL    |                |
+| updated_at | timestamp       | YES  |     | NULL    |                |
+
+### Table Name: roles
+
+| Field      | Type            | Null | Key | Default | Extra          |
+|------------|-----------------|------|-----|---------|----------------|
+| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255)    | NO   | MUL | NULL    |                |
+| guard_name | varchar(255)    | NO   |     | NULL    |                |
+| created_at | timestamp       | YES  |     | NULL    |                |
+| updated_at | timestamp       | YES  |     | NULL    |                |
+
+### Table Name: model_has_permissions
+
+| Field         | Type            | Null | Key | Default | Extra |
+|---------------|-----------------|------|-----|---------|-------|
+| permission_id | bigint unsigned | NO   | PRI | NULL    |       |
+| model_type    | varchar(255)    | NO   | PRI | NULL    |       |
+| model_id      | bigint unsigned | NO   | PRI | NULL    |       |
+
+### Table Name: model_has_roles
+
+| Field      | Type            | Null | Key | Default | Extra |
+|------------|-----------------|------|-----|---------|-------|
+| role_id    | bigint unsigned | NO   | PRI | NULL    |       |
+| model_type | varchar(255)    | NO   | PRI | NULL    |       |
+| model_id   | bigint unsigned | NO   | PRI | NULL    |       |
+
+### Table Name: model_has_roles
+
+| Field         | Type            | Null | Key | Default | Extra |
+|---------------|-----------------|------|-----|---------|-------|
+| permission_id | bigint unsigned | NO   | PRI | NULL    |       |
+| role_id       | bigint unsigned | NO   | PRI | NULL    |       |
+
 # Application Roles & Permissions:
 
 ## Permissions:
 
-* To be determined
+* Invite Members
+* Manage Team
 
 ## Roles:
 
 * Super-Admin:
+    * Invite Members
+    * Manage Team
 * Admin:
+    * Invite Members
+    * Manage Team
 * Member:
 * Guest:

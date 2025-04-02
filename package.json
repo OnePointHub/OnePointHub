@@ -1,21 +1,40 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite",
-        "prettier": "npx prettier --write resources/"
-    },
-    "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
-        "axios": "^1.8.2",
-        "concurrently": "^9.0.1",
-        "daisyui": "^5.0.9",
-        "laravel-vite-plugin": "^1.2.0",
-        "prettier": "^3.5.3",
-        "prettier-plugin-blade": "^2.1.21",
-        "prettier-plugin-tailwindcss": "^0.6.11",
-        "tailwindcss": "^4.0.0",
-        "vite": "^6.0.11"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.13.14",
+    "concurrently": "^9.0.1",
+    "eslint": "^9.23.0",
+    "laravel-vite-plugin": "^1.2.0",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "@inertiajs/vue3": "^2.0.5",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vueuse/components": "^13.0.0",
+    "@vueuse/core": "^13.0.0",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide": "^0.485.0",
+    "lucide-vue-next": "^0.485.0",
+    "pinia": "^3.0.1",
+    "radix-vue": "^1.9.17",
+    "reka-ui": "^2.1.1",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.8.2",
+    "vue": "^3.5.13",
+    "vue3-toastify": "^0.2.8",
+    "ziggy-js": "^2.5.2"
+  }
 }
