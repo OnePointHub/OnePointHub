@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use App\Models\User;
+use Closure;
+use Illuminate\Http\Request;
+
+class EnsureTwoFactorChallengeSession
+{
+    /**
+     * Handle an incoming request.
+     */
+    public function handle(Request $request, Closure $next): mixed
+    {
+        if (! $request->session()->has('login.id')) {
+            return redirect()->route('login');
+        }
+
+        $userId = $request->session()->get('login.id');
+        $user = User::find($userId);
+
+        if (! $user) {
+            return redirect()->route('login');
+        }
+
+        // Share the user with the request for controllers to use.
+        $request->merge(['two_factor_auth_user' => $user]);
+
+        return $next($request);
+    }
+}
