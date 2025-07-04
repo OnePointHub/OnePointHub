@@ -1,5 +1,6 @@
 {
     "Auth": true,
     "Profile": true,
-    "Roles": true
+    "Roles": true,
+    "Tickets": true
 }
