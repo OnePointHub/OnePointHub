@@ -36,8 +36,15 @@
         />
 
         <div class="flex items-center justify-end mt-4">
-            {{--                <p><a href="{{ route('login') }}" class="pt-2 mr-5 underline">{{ __('Already registered?') }}</a></p>--}}
-            <p><a href="#" class="pt-2 mr-5 underline">{{ __('Already registered?') }}</a></p>
+            <p>
+                <a
+                    href="{{ route('login') }}"
+                    wire:navigate
+                    class="pt-2 mr-5 underline"
+                >
+                    {{ __('Already registered?') }}
+                </a>
+            </p>
             <x-button>{{ __('Register') }}</x-button>
         </div>
 
