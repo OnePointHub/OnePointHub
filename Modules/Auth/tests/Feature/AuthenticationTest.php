@@ -54,3 +54,13 @@ it('can rate limit login attempts', function () {
 
     $response->assertHasErrors('email');
 });
+
+it('can log out users', function () {
+    $user = User::factory()->create();
+
+    $response = $this->actingAs($user)->post(route('logout'));
+
+    $response->assertRedirect('/');
+
+    $this->assertGuest();
+});
