@@ -3,14 +3,6 @@
 Route::middleware('guest')->group(function () {
 });
 
-Route::get('forgot-password', function () {
-    return view('auth.forgot-password');
-});
-
-Route::get('reset-password/{token}', function () {
-    return view('auth.reset-password');
-});
-
 Route::get('join/{token}', function () {
     return view('auth.join');
 });
