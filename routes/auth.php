@@ -1,7 +1,6 @@
 <?php
 
-Route::get('register', function () {
-    return view('auth.register');
+Route::middleware('guest')->group(function () {
 });
 
 Route::get('login', function () {
