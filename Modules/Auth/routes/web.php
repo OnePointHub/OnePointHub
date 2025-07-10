@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Auth\Http\Controllers\VerifyEmailController;
 use Modules\Auth\Livewire\Actions\Logout;
+use Modules\Auth\Livewire\ConfirmPassword;
 use Modules\Auth\Livewire\ForgotPassword;
 use Modules\Auth\Livewire\Login;
 use Modules\Auth\Livewire\Register;
@@ -21,5 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
         ->middleware(['signed', 'throttle:6,1'])
         ->name('verification.verify');
+    Route::get('confirm-password', ConfirmPassword::class)->name('password.confirm');
     Route::post('logout', Logout::class)->name('logout');
 });
